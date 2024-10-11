@@ -19,18 +19,18 @@ public class Main
         System.out.println("Gastos médicos: ");
         double medicalBill = scn.nextDouble();
 
-		System.out.println("Gastos educacionais: ");
-		double educationalBill = scn.nextDouble();
+	System.out.println("Gastos educacionais: ");
+	double educationalBill = scn.nextDouble();
 		
-		declaration.get(salary, servicesIncome, capitalGainIncome, medicalBill, educationalBill);
-		
-		
-		System.out.println("\n##RELATÓRIO DE IMPOSTO DE RENDA##");
-		declaration.consolidatedIncome();
-		declaration.deduction();
-		declaration.resume();
+	declaration.get(salary, servicesIncome, capitalGainIncome, medicalBill, educationalBill);
 		
 		
-		scn.close();
+	System.out.println("\n##RELATÓRIO DE IMPOSTO DE RENDA##");
+	declaration.consolidatedIncome();
+	declaration.deduction();
+	declaration.resume();
+		
+		
+	scn.close();
 	}
 }
