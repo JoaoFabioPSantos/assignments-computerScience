@@ -15,84 +15,84 @@ public class TaxDeclaration{
 	private double educationalBill;
     
 	public void get(double salary, double servicesIncome, double capitalGainIncome, double medicalBill, double educationalBill){
-    	this.salary = salary;
-    	this.servicesIncome = servicesIncome;
-    	this.capitalGainIncome = capitalGainIncome;
-    	this.medicalBill = medicalBill;
-    	this.educationalBill = educationalBill;
+    		this.salary = salary;
+    		this.servicesIncome = servicesIncome;
+    		this.capitalGainIncome = capitalGainIncome;
+    		this.medicalBill = medicalBill;
+    		this.educationalBill = educationalBill;
 	}
     
 	private double salaryTax( ){
-    	if(salary<3000.00){
+    		if(salary<3000.00){
         	salaryTax = 0.00;
        	 
-    	}else if(salary<5000.00){
+    		}else if(salary<5000.00){
         	salaryTax = 0.1;
    	 
-    	}else if(salary>=5000.00){
+    		}else if(salary>=5000.00){
         	salaryTax = 0.2;
        	 
-    	}
-    	return salaryTax*salary;
+    		}
+    		return salaryTax*salary;
 	}
     
 	private double servicesTax(){
-    	if(servicesIncome!=0.00){
+    		if(servicesIncome!=0.00){
         	servicesTax = 0.15;
        	 
-    	}else{
+    		}else{
         	servicesTax = 0.00;
        	 
-    	}
-    	return servicesTax*servicesIncome;
+    		}
+    		return servicesTax*servicesIncome;
 	}
     
 	private double capitalGainTax(){
-    	if(capitalGainIncome!=0.00){
-        	capitalGainTax = 0.20;
+    		if(capitalGainIncome!=0.00){
+        		capitalGainTax = 0.20;
        	 
-    	}else{
-        	capitalGainTax = 0.00;
+    		}else{
+        		capitalGainTax = 0.00;
        	 
-    	}
+    		}
    	 
-    	return capitalGainTax*capitalGainIncome;
+    		return capitalGainTax*capitalGainIncome;
 	}
     
 	private double getMaxTax(){
-    	maxTax = (salaryTax()+servicesTax()+capitalGainTax());
-    	return maxTax;
+    		maxTax = (salaryTax()+servicesTax()+capitalGainTax());
+    		return maxTax;
 	}
     
 	private double maxDeduction(){
-    	maxDeduction = (salaryTax()+servicesTax()+capitalGainTax())*0.3);
+    		maxDeduction = (salaryTax()+servicesTax()+capitalGainTax())*0.3);
    	 
-    	if((medicalBill+educationalBill)>maxDeduction{
-        	return maxDeduction;
-    	}else{
-        	return medicalBill+educationalBill;
-    	}
+    		if((medicalBill+educationalBill)>maxDeduction{
+        		return maxDeduction;
+    		}else{
+        		return medicalBill+educationalBill;
+    		}
    	 
 	}
     
 	public void consolidatedIncome(){
-    	System.out.println("\n*CONSOLIDADO DE RENDA: ");
-    	System.out.println("Imposto sobre salário: "+salaryTax());
-    	System.out.println("Imposto sobre serviços: "+servicesTax());
-    	System.out.println("Imposto sobre serviço de capital: "+capitalGainTax());
+    		System.out.println("\n*CONSOLIDADO DE RENDA: ");
+    		System.out.println("Imposto sobre salário: "+salaryTax());
+    		System.out.println("Imposto sobre serviços: "+servicesTax());
+    		System.out.println("Imposto sobre serviço de capital: "+capitalGainTax());
 	}
     
 	public void deduction(){
-    	System.out.println("\n*DEDUÇÕES: ");
-    	System.out.println("Máximo dedutível: "+maxDeduction());
-    	System.out.println("Gastos dedutíveis: "+(medicalBill+educationalBill));
+    		System.out.println("\n*DEDUÇÕES: ");
+    		System.out.println("Máximo dedutível: "+maxDeduction());
+    		System.out.println("Gastos dedutíveis: "+(medicalBill+educationalBill));
 	}
     
 	public void resume(){
-    	System.out.println("\n*RESUMO: ");
-    	System.out.println("Imposto Bruto Total: "+getMaxTax());
-    	System.out.println("Abatimento: "+maxDeduction());
-    	System.out.println("Imposto devido: "+(getMaxTax()-maxDeduction()));
+    		System.out.println("\n*RESUMO: ");
+    		System.out.println("Imposto Bruto Total: "+getMaxTax());
+    		System.out.println("Abatimento: "+maxDeduction());
+    		System.out.println("Imposto devido: "+(getMaxTax()-maxDeduction()));
 	}
     
 }
