@@ -23,13 +23,13 @@ public class TaxDeclaration{
 	}
     
 	private double salaryTax( ){
-    		if(salary<3000.00){
+    		if((salary/12)<3000.00){
         	salaryTax = 0.00;
        	 
-    		}else if(salary<5000.00){
+    		}else if((salary/12)<5000.00){
         	salaryTax = 0.1;
    	 
-    		}else if(salary>=5000.00){
+    		}else if((salary/12)>=5000.00){
         	salaryTax = 0.2;
        	 
     		}
@@ -65,9 +65,9 @@ public class TaxDeclaration{
 	}
     
 	private double maxDeduction(){
-    		maxDeduction = (salaryTax()+servicesTax()+capitalGainTax())*0.3);
+    		maxDeduction = ((salaryTax()+servicesTax()+capitalGainTax())*0.3);
    	 
-    		if((medicalBill+educationalBill)>maxDeduction{
+    		if((medicalBill+educationalBill)>maxDeduction){
         		return maxDeduction;
     		}else{
         		return medicalBill+educationalBill;
