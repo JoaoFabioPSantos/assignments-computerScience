@@ -8,9 +8,9 @@ public class Main
 		int quantityRegister;
 		
 		String nameAthlete;
-        char genderAthlete;
-        float weightAthlete;
-        double heightAthlete;
+        	char genderAthlete;
+       		double weightAthlete;
+        	double heightAthlete;
 		
 		float totalWeight = 0.0f;
 		float averageWeight = 0.0f;
@@ -22,7 +22,6 @@ public class Main
 		
 		System.out.println("Qual a quantidade de atletas ?");
 		quantityRegister = scn.nextInt();
-		//Consome um "\n oculto"
 		scn.nextLine();
 		
 		AthleteRegister[] athletes = new AthleteRegister[quantityRegister];
@@ -31,6 +30,7 @@ public class Main
 		    AthleteRegister athlete = new AthleteRegister();
 		    
 		    System.out.println("Digite os dados do atleta");
+		    scn.nextLine();
 		    
 		    System.out.println("Nome:");
 		    nameAthlete = scn.nextLine();
@@ -39,10 +39,8 @@ public class Main
 		    while(true){
 		        genderAthlete = scn.next().charAt(0);
 		        
-		        if(genderAthlete=='F' || genderAthlete=='M'){
-		            break;   
-		        }else{
-		            System.out.println("Valor invalido! Favor digitar F ou M: ");
+		        if(athlete.verifyOptionGender(genderAthlete)){
+		            break;
 		        }
 		    }
 
@@ -50,41 +48,36 @@ public class Main
 		    while(true){
 		        heightAthlete = scn.nextDouble();
 		        
-		        if(heightAthlete>0){
-		            break;   
-		        }else{ 
-		            System.out.println("Valor invalido! Digite um valor positivo: ");
+		        if(athlete.verifyPositive(heightAthlete)){
+		            break;
 		        }
 		    }
 		
 		    System.out.println("Peso: ");   
-            while(true){
-		        weightAthlete = scn.nextFloat();
-		        
-		        if(weightAthlete>0){
-		            break;   
-		        }else{ 
-		            System.out.println("Valor invalido! Digite um valor positivo: ");
+		    while(true){
+		        weightAthlete = scn.nextDouble();
+
+		        if(athlete.verifyPositive(weightAthlete)){
+		            break;
 		        }
 		    }
             
-            averageWeight += weightAthlete;
+            	    averageWeight += weightAthlete;
             
-            if(highestHeight <= heightAthlete){
-                highestHeight = heightAthlete;
-                highestAthlete = i;
-            }
+           	    if(highestHeight <= heightAthlete){
+                	highestHeight = heightAthlete;
+                	highestAthlete = i;
+            	    }
             
-            if(genderAthlete == 'M'){
-                menQuantity++;
+            	    if(genderAthlete == 'M'){
+                	menQuantity++;
                 
-            }else if(genderAthlete == 'F'){
-                womanTotalHeight += heightAthlete;
-            }
+           	    }else if(genderAthlete == 'F'){
+                	womanTotalHeight += heightAthlete;
+            	    }
             
-            
-            athlete.Gets(nameAthlete, genderAthlete, heightAthlete, weightAthlete);
-            athletes[i] = athlete;
+            	    athlete.Gets(nameAthlete, genderAthlete, heightAthlete, weightAthlete);
+            	    athletes[i] = athlete;
 		}
 		
 		averageWeight /= quantityRegister;
