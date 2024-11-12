@@ -6,6 +6,7 @@ public class Main
 		Scanner scn = new Scanner(System.in);
 		
 		LightBulb lightBulb = new LightBulb();
+		int option = 1;
 
 		System.out.println(">>SEJA BEM VINDO AO SOFTWARE LÂMPADA<<");
 		
@@ -25,7 +26,7 @@ public class Main
 		System.out.println("Tipo da lâmpada: ");
 		lightBulb.setType(scn.nextLine());
 		
-		System.out.println("Garantia da lâmpada: ");
+		System.out.println("Garantia da lâmpada (em meses): ");
         	lightBulb.setGuaranteeTime(scn.nextInt());
         	scn.nextLine();
 		
@@ -36,16 +37,16 @@ public class Main
 		System.out.println("Status da lâmpada: ");
 		lightBulb.setStatus(scn.nextLine());
 
-		while(true){
-		    System.out.println("Ligar/Desligar lâmpada? 0 – Sair / 1– Sim /2– Não) : ");
-		    int option = scn.nextInt();
+		while(option!=0){
+		    System.out.println("Ligar/Desligar lâmpada? 0– Sair / 1– Sim /2– Não) : ");
+		    option = scn.nextInt();
 		    switch (option){
 		        case 1:
 		            lightBulb.switchMode();
 		            break;
 		            
 		        case 2:
-		            lightBulb.getStatus();
+		            System.out.println(lightBulb.getStatus());
 		            break;
 		        
 		        case 0:
