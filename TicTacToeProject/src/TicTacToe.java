@@ -2,7 +2,7 @@ public class TicTacToe{
     
     private char playerIcon;
     private boolean turnPlayer = true;
-    private char[][] gameArray = new char[3][3];
+    private char[][] gameArray = {{'*','*','*'},{'*','*','*'},{'*','*','*'},};
     
     public void turnSide(){
         if(turnPlayer){
@@ -19,16 +19,12 @@ public class TicTacToe{
     
     
     public void showGame(){
-        
-        System.out.println("  ");
-/*  
-  X |  -  |  -  
-____+_____+____
-  - |  O  | X  
-____+_____+____
-    |     |     
-  - |  O  |  -  
-*/   
+       System.out.println("\n  0   1   2\n"
+		                   +"0 "+gameArray[0][0]+" | "+gameArray[0][1]+" | "+gameArray[0][2]+ "\n"
+		                   +" ---+---+---\n"
+		                   +"1 "+gameArray[1][0]+" | "+gameArray[1][1]+" | "+gameArray[1][2]+ "\n"
+		                   +" ---+---+---\n"
+		                   +"2 "+gameArray[2][0]+" | "+gameArray[2][1]+" | "+gameArray[2][2]);
         
     }
     
