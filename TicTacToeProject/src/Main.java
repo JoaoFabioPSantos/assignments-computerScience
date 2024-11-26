@@ -1,10 +1,3 @@
-// Inputs: Digitar a linha e a coluna 
-
-//Lógica : count de 3 em linha ou coluna rolando em um for a cada inserção de valor; 
-
-// Outputs: Vez do jogador, Jogada válida ou  inválida, e o jogo por sí.
-
-
 import java.util.Scanner;
 
 public class Main
@@ -22,18 +15,18 @@ public class Main
 		    game.turnSide();
 		    game.showGame();
 		    
+			while(true){
+                		System.out.println("\nDigite a Linha: ");
+                		linha = scn.nextInt();
 		    
-		     while(true){
-                System.out.println("Digite a Linha: ");
-                linha = scn.nextInt();
-		    
-		        System.out.println("Digite a Coluna: ");
-		        coluna = scn.nextInt();
+		        	System.out.println("Digite a Coluna: ");
+		        	coluna = scn.nextInt();
 		        
-		        if(game.fillPlace(linha, coluna))break;
+		        	if(game.fillPlace(linha, coluna))break;
 		    }
 		    
 		    if(game.verifyWinner())break;
+		    if(turn==9)System.out.println("ALERTA: EMPATE!");
 		}
 		
 		
