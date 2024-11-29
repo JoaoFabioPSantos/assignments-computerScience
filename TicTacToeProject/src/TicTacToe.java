@@ -30,13 +30,18 @@ public class TicTacToe{
     }
     
     public boolean fillPlace(int linha, int coluna){ 
-        if(gameArray[linha][coluna] == 'X' || gameArray[linha][coluna] =='O'){
-         System.out.println("Posição inválida!");
-         return false;
+        if(linha<3 && coluna<3){
+            if(gameArray[linha][coluna] == '*'){
+                gameArray[linha][coluna] = playerIcon;
+                return true;
+            }else{
+                System.out.println("Posição já ocupada!"); 
+                return false;
+            }
+        }else{
+            System.out.println("Posição inválida!");   
+            return false;
         }
-        
-        gameArray[linha][coluna] = playerIcon;
-        return true;
     }
     
     public boolean verifyWinner(){
