@@ -2,13 +2,151 @@
 #include <stdlib.h>
 #include <locale.h>
 
+int operations(int numberManager, int **matInicial, int linhaInicial, int colunaInicial){
+    int **resultado, **matOperador;
+    int linhaOperador, colunaOperador;
+    int i, j;
+
+    printf("\n### DEFINA A MATRIZ OPERADORA ###\n");
+    printf("Informe o número de linhas: \n");
+    scanf("%d", &linhaOperador);
+    
+    printf("Informe o número de colunas: \n");
+    scanf("%d", &colunaOperador);
+    
+    //VERIFICADORES E CALCULOS
+    if(numberManager == 1 || numberManager == -1){
+        if(linhaOperador != linhaInicial || colunaOperador != colunaInicial){
+            return printf("!!!ERRO NA DECLARAÇÃO DE MATRIZES!!! ");
+        }
+        
+    }else if(numberManager == 2){
+        if(colunaInicial != linhaOperador){
+            return printf("!!!ERRO NA DECLARAÇÃO DE MATRIZES!!!\nÉ necessário que o número de colunas da Matriz Operanda seja o mesmo de linhas da Matriz Inicial\n");
+        }else{
+            resultado = (int**)calloc(linhaInicial,sizeof(int*));
+            if(resultado == NULL){
+                printf("Memória Insuficiente");
+            }
+        
+            for(i=0; i<linhaOperador; i++){
+                resultado[i] = (int*)calloc(colunaOperador,sizeof(int));
+                if(resultado[i]==NULL){
+                    printf("Memória Insuficiente\n");
+                }
+            }
+        
+            matOperador = (int**)malloc(linhaOperador*sizeof(int*));
+            if(matOperador == NULL){
+                printf("Memória Insuficiente\n");
+            }
+    
+            for(i=0; i<linhaOperador; i++){
+                matOperador[i] = (int*)malloc(colunaOperador*sizeof(int));
+                if(matOperador[i]==NULL){
+                    printf("Memória Insuficiente\n");
+                }
+            }
+            
+            for(i=0; i<linhaOperador; i++){
+                for(j=0; j<colunaOperador; j++){
+                    matOperador[i][j] = rand()%100;
+                }
+            }
+        
+            printf("== MATRIZ OPERADOR ==");
+            for(i=0; i<linhaOperador; i++){
+                printf("\n");
+                for(j=0; j<colunaOperador; j++){
+                    printf("%d \t", matOperador[i][j]);
+                }
+            }
+            
+            for(i=0; i<linhaInicial; i++){
+                for(j=0; j<colunaOperador; j++){
+                    for(int k=0; k<linhaOperador; k++){
+                        resultado[i][j] = resultado[i][j] + (matInicial[i][k] * matOperador[k][j]);  
+                    }
+                }
+            }
+        
+            printf("\n== MATRIZ RESULTADO ==");
+            for(i=0; i<linhaInicial; i++){
+                printf("\n");
+                for(j=0; j<colunaOperador; j++){
+                    printf("%d \t", resultado[i][j]);
+                }
+            }
+            
+            return 1;    
+        }
+    }
+    
+    resultado = (int**)malloc(linhaOperador*sizeof(int*));
+    if(resultado == NULL){
+        printf("Memória Insuficiente\n");
+    }
+    
+    for(i=0; i<linhaOperador; i++){
+        resultado[i] = (int*)malloc(colunaOperador*sizeof(int));
+        if(resultado[i]==NULL){
+            printf("Memória Insuficiente\n");
+        }
+    }
+                
+    matOperador = (int**)malloc(linhaOperador*sizeof(int*));
+    if(matOperador == NULL){
+        printf("Memória Insuficiente\n");
+    }
+    for(i=0; i<linhaOperador; i++){
+        matOperador[i] = (int*)malloc(colunaOperador*sizeof(int));
+        if(matOperador[i]==NULL){
+            printf("Memória Insuficiente\n");
+        }
+    }
+                
+    for(i=0; i<linhaOperador; i++){
+        for(j=0; j<colunaOperador; j++){
+            matOperador[i][j] = rand()%100;
+        }
+    }
+                
+    printf("\n=== MATRIZ OPERADOR ===");
+    for(i=0; i<linhaOperador; i++){
+        printf("\n");
+        for(j=0; j<colunaOperador; j++){
+            printf("%d \t", matOperador[i][j]);
+        }
+    }
+                
+    for(i=0; i<linhaOperador; i++){
+        for(j=0; j<colunaOperador; j++){
+            resultado[i][j] = (matInicial[i][j] + (numberManager*matOperador[i][j]));
+        }
+    }
+                
+    printf("\n=== MATRIZ RESULTADO ===");
+    for(i=0; i<linhaInicial; i++){
+        printf("\n");
+        for(j=0; j<colunaInicial; j++){
+            printf("%d \t", resultado[i][j]);
+        }
+    }
+    
+    for(i=0; i<linhaOperador; i++){
+        free(matOperador[i]);
+    }
+    free(matOperador);
+    return 1;
+}
+
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
     int option = 0;
-    int linhaInicial, colunaInicial, linhaSomatoria, colunaSomatoria;
-    int i, j;
-    int **matInicial, **resultado, **matSomatoria, **matOperanda;
+    int linhaInicial, colunaInicial;
+    int **matInicial, **resultado;
+    int i,j;
     
     printf("||| PROGRAMA DE MATRIZES ||| \n");
     while(option!=6){
@@ -19,8 +157,7 @@ int main()
             break;
         }
         
-        printf("== DEFINA A MATRIZ INICIAL ==\n");
-    
+        printf("### DEFINA A MATRIZ INICIAL ###\n");
         printf("Informe o número de linhas: \n");
         scanf("%d", &linhaInicial);
     
@@ -31,7 +168,6 @@ int main()
         if(matInicial == NULL){
             printf("Memória Insuficiente\n");
         }
-    
         for(i=0; i<linhaInicial; i++){
             matInicial[i] = (int*)malloc(colunaInicial*sizeof(int));
             if(matInicial[i]==NULL){
@@ -54,162 +190,15 @@ int main()
         }
         
         switch(option){
-            
         case 1:
-            //SOMATORIO
-            printf("\n== DEFINA A MATRIZ SOMATORIA ==\n");
-    
-            printf("Informe o número de linhas: \n");
-            scanf("%d", &linhaSomatoria);
-    
-            printf("Informe o número de colunas: \n");
-            scanf("%d", &colunaSomatoria);
-        
-            if(linhaSomatoria != linhaInicial || colunaSomatoria != colunaInicial){
-                printf("\n!!! Matriz Somatória Inválida !!!");
-                break;
-    
-            }else{
-                
-                resultado = (int**)malloc(linhaInicial*sizeof(int*));
-                    if(resultado == NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-    
-                for(i=0; i<linhaInicial; i++){
-                    resultado[i] = (int*)malloc(colunaInicial*sizeof(int));
-                    if(resultado[i]==NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-                }
-                
-                matSomatoria = (int**)malloc(linhaSomatoria*sizeof(int*));
-                if(matSomatoria == NULL){
-                    printf("Memória Insuficiente\n");
-                }
-    
-                for(i=0; i<linhaSomatoria; i++){
-                    matSomatoria[i] = (int*)malloc(colunaSomatoria*sizeof(int));
-                    if(matSomatoria[i]==NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-                }
-                
-                for(i=0; i<linhaSomatoria; i++){
-                    for(j=0; j<colunaSomatoria; j++){
-                        matSomatoria[i][j] = rand()%100;
-                    }
-                }
-                
-                printf("\n=== MATRIZ SOMATÓRIO ===");
-                for(i=0; i<linhaSomatoria; i++){
-                    printf("\n");
-                    for(j=0; j<colunaSomatoria; j++){
-                        printf("%d \t", matSomatoria[i][j]);
-                    }
-                }
-                
-                for(i=0; i<linhaInicial; i++){
-                    for(j=0; j<colunaInicial; j++){
-                        resultado[i][j] = (matInicial[i][j] + matSomatoria[i][j]);
-                    }
-                }
-                
-                printf("\n=== MATRIZ RESULTADO ===");
-                for(i=0; i<linhaInicial; i++){
-                    printf("\n");
-                    for(j=0; j<colunaInicial; j++){
-                        printf("%d \t", resultado[i][j]);
-                    }
-                }
-            }
-        
-            for(i=0; i<linhaSomatoria; i++){
-                free(matSomatoria[i]);
-            }
-            free(matSomatoria);
-        
+            operations(1, matInicial, linhaInicial, colunaInicial);
             break;
             
         case 2:
-            //SUBTRAÇÃO
-                printf("\n== DEFINA A MATRIZ SOMATORIO ==\n");
-    
-                printf("Informe o número de linhas: \n");
-                scanf("%d", &linhaSomatoria);
-    
-                printf("Informe o número de colunas: \n");
-                scanf("%d", &colunaSomatoria);
-        
-                if(linhaSomatoria != linhaInicial || colunaSomatoria != colunaInicial){
-                    printf("\n!!! Matriz Operanda Inválida !!!");
-                    break;
-    
-                }else{
-                
-                    resultado = (int**)malloc(linhaInicial*sizeof(int*));
-                    if(resultado == NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-    
-                    for(i=0; i<linhaInicial; i++){
-                        resultado[i] = (int*)malloc(colunaInicial*sizeof(int));
-                        if(resultado[i]==NULL){
-                            printf("Memória Insuficiente\n");
-                        }
-                    }
-                
-                
-                    matSomatoria = (int**)malloc(linhaSomatoria*sizeof(int*));
-                    if(matSomatoria == NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-    
-                    for(i=0; i<linhaSomatoria; i++){
-                        matSomatoria[i] = (int*)malloc(colunaSomatoria*sizeof(int));
-                        if(matSomatoria[i]==NULL){
-                            printf("Memória Insuficiente\n");
-                        }
-                    }
-                
-                    for(i=0; i<linhaSomatoria; i++){
-                        for(j=0; j<colunaSomatoria; j++){
-                            matSomatoria[i][j] = rand()%100;
-                        }
-                    }
-                
-                    printf("\n=== MATRIZ SOMATÓRIO ===");
-                    for(i=0; i<linhaSomatoria; i++){
-                        printf("\n");
-                        for(j=0; j<colunaSomatoria; j++){
-                            printf("%d \t", matSomatoria[i][j]);
-                        }
-                    }
-                
-                    for(i=0; i<linhaInicial; i++){
-                        for(j=0; j<colunaInicial; j++){
-                            resultado[i][j] = matInicial[i][j] - matSomatoria[i][j];
-                        }
-                    }
-                
-                    printf("\n=== MATRIZ RESULTADO ===");
-                    for(i=0; i<linhaInicial; i++){
-                        printf("\n");
-                        for(j=0; j<colunaInicial; j++){
-                            printf("%d \t", resultado[i][j]);
-                        }
-                    }
-                }
-        
-            for(i=0; i<linhaInicial; i++){
-                free(matSomatoria[i]);
-            }
-            free(matSomatoria);
-        
+            operations(-1, matInicial, linhaInicial, colunaInicial);
             break;
             
         case 3:
-            //IDENTIDADE
             for(i=0; i<linhaInicial; i++){
                 for(j=0; j<colunaInicial; j++){
                     if(i == j){
@@ -230,12 +219,10 @@ int main()
             break;
             
         case 4:
-            //TRANSPOSTA
             resultado = (int**)malloc(colunaInicial*sizeof(int*));
             if(resultado == NULL){
                 printf("Memória Insuficiente\n");
             }
-    
             for(i=0; i<linhaInicial; i++){
                 resultado[i] = (int*)malloc(linhaInicial*sizeof(int));
                 if(resultado[i]==NULL){
@@ -258,82 +245,9 @@ int main()
             }
             break;
     
-    
         case 5:
-            //MULTIPLICAÇÃO
-            int linhaOperanda, colunaOperanda;
-        
-            printf("\n== DEFINA A MATRIZ OPERANDO ==\n");
-    
-            printf("Informe o número de linhas: \n");
-            scanf("%d", &linhaOperanda);
-    
-            printf("Informe o número de colunas: \n");
-            scanf("%d", &colunaOperanda);
-        
-            if(colunaInicial != linhaOperanda){
-                printf("\n!!! Matriz Operanda Inválida\nÉ necessário que o número de colunas da Matriz Operanda seja o mesmo de linhas da Matriz Inicial !!!");
-                break;
-    
-            }else{
-                
-                resultado = (int**)calloc(linhaInicial,sizeof(int*));
-                if(resultado == NULL){
-                    printf("Memória Insuficiente\n");
-                }
-    
-                for(i=0; i<linhaInicial; i++){
-                    resultado[i] = (int*)calloc(colunaOperanda,sizeof(int));
-                    if(resultado[i]==NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-                }
-                
-                matOperanda = (int**)malloc(linhaOperanda*sizeof(int*));
-                if(matOperanda == NULL){
-                    printf("Memória Insuficiente\n");
-                }
-    
-                for(i=0; i<linhaOperanda; i++){
-                    matOperanda[i] = (int*)malloc(colunaOperanda*sizeof(int));
-                    if(matOperanda[i]==NULL){
-                        printf("Memória Insuficiente\n");
-                    }
-                }
-                
-                for(i=0; i<linhaOperanda; i++){
-                    for(j=0; j<colunaOperanda; j++){
-                        matOperanda[i][j] = rand()%100;
-                    }
-                }
-                
-                printf("== MATRIZ OPERANDO ==");
-                for(i=0; i<linhaOperanda; i++){
-                    printf("\n");
-                    for(j=0; j<colunaOperanda; j++){
-                        printf("%d \t", matOperanda[i][j]);
-                    }
-                }
-                
-                for(i=0; i<linhaInicial; i++){
-                    for(j=0; j<colunaOperanda; j++){
-                        for(int k=0; k<linhaOperanda; k++){
-                            resultado[i][j] = resultado[i][j] + (matInicial[i][k] * matOperanda[k][j]);  
-                        }
-                    }
-                }
-        
-                printf("\n== MATRIZ RESULTADO ==");
-                for(i=0; i<linhaInicial; i++){
-                    printf("\n");
-                    for(j=0; j<colunaOperanda; j++){
-                        printf("%d \t", resultado[i][j]);
-                    }
-                }
-                
-            }
+            operations(2, matInicial, linhaInicial, colunaInicial);    
             break;
-            
             
         case 6:
             printf("\n||| Saindo do programa |||\n");
