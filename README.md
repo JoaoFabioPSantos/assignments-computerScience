@@ -12,3 +12,4 @@ This repository has the objective to store assignments and codes for the paradig
 + PROJECT 6 (Technics C++) : [Stock](https://github.com/JoaoFabioPSantos/assignments-paradigms/tree/main/StockProject)
 + PROJECT 7 (Lab C) : [Matrix Project](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/MatrixProject)
 + PROJECT 8 (Lab C) : [Converter Project](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/ConverterProject)
++ PROJECT 9 (Data Structures II) : [Progression Recursivity (Aritmetic & Geometric)](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/ProgressionAritmeticGeometricProject)
