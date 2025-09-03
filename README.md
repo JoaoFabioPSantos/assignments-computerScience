@@ -1,6 +1,6 @@
-# Assignments Paradigms
+# Assignments Computer Science
 
-This repository has the objective to store assignments and codes for the paradigms class.
+This repository has the objective to store assignments and codes for all the assignments.
 
 ## Projects List:
 
