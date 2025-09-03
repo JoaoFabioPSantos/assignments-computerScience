@@ -1,0 +1,41 @@
+body{
+	color: #FFFF;
+	font-family: "Roboto", sans-serif;
+}
+
+header{
+	width: 95%;
+	height: 10%;
+	padding: 2%;
+}
+
+.headerBase{
+	background-color: red;
+	display: flex;
+	justify-content: space-between;
+	font-size: 20px;
+}
+
+main{
+	color: black; !important
+}
+
+.images{
+	background-color: green;
+	flex-direction: column;
+	justify-content: center;
+	display: flex;
+}
+
+footer{
+	margin-top: 5px;
+	width: 95%;
+	height: 10%;
+	padding: 2%;
+}
+
+.footerBase{
+	background-color: blue;
+	display:flex;
+	justify-content: center;
+}
