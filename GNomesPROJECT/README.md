@@ -1,4 +1,4 @@
-\# GNomes Project
+\#GNomes Project
 
 
 
@@ -6,13 +6,14 @@
 
 
 
-\## Páginas
+\##Páginas
 
-&nbsp;   - Home
+&nbsp;- Home
 
-&nbsp;   - Minigames
+&nbsp;- Minigames
 
-&nbsp;   - About
+&nbsp;- About
 
-&nbsp;   - Other (temporária)
+&nbsp;- Other (temporária)
+
 
