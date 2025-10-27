@@ -15,3 +15,4 @@ This repository has the objective to store assignments and codes for all the ass
 + PROJECT 9 (Data Structures II) : [Progression Recursivity (Aritmetic & Geometric)](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/ProgressionAritmeticGeometricProject)
 + PROJECT 10 (Lab 1) : [GNome Web Project](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/GNomesPROJECT).
 + PROJECT 11 (POO 1) : [Random Number Project](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/RandomNumberProject).
++ PROJECT 12 (POO 1) : [Home Energy Consumption Project](https://github.com/JoaoFabioPSantos/assignments-computerScience/tree/main/HomeEnergyConsumptionSimulatorProject).
