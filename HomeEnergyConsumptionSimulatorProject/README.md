@@ -22,9 +22,10 @@ Brief description of the system’s functionality.
 - Name (string)
 - Cost kWh (float)
 
-2. Functions: 
+2. Functions Controller: 
 - *Register*
 - *Remove*
+- *List Eletronics*
 
 ### Residence Class
 1. Attributes: 
@@ -32,9 +33,12 @@ Brief description of the system’s functionality.
 - Location/Name (string)
 - Array Electronic Appliance(Eletronics[ ])
 
-2. Functions: 
+2. Functions Controller: 
 - *Register Eletronic*
 - *Set usage time for each Eletronics*
+- *Register*
+- *Remove*
+- *List Residence*
 
 ### Electric Grid Class
 1. Attributes:
@@ -42,9 +46,6 @@ Brief description of the system’s functionality.
 - Billing month (may vary depending on the number of days)
 
 2. Functions:
-- *Add new residence*
-- *Remove residence*
-- *List residences*
 - *Calculate residence cost (passing the residence ID, and returns the monthly cost)*
 
 Note:
