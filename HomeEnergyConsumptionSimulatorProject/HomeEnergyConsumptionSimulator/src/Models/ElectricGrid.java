@@ -3,6 +3,10 @@ package Models;
 public class ElectricGrid {
     private static float eletronicTax = 0.1f;
 
+    public float getEletronicTax(){
+        return eletronicTax;
+    }
+
     public void setEletronicTax(float eletronicTax){
         System.out.println("!!!OBS: Alterar esta taxa, altera todos os outros futuros cálculos, até houver novamente outra alteração.!!!");
         this.eletronicTax = eletronicTax;

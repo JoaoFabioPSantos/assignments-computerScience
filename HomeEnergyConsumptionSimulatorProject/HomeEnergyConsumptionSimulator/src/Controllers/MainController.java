@@ -31,6 +31,8 @@ public class MainController {
         }
 
         //Ai vamos passar aqui embaixo, apenas a residence específica do array para ser alterada
+        //é necessário pegar a array e informar o tempo que foi utilizado cada eletrodoméstico, pegar o custo dele de energia
+        //adicionar a uma variável multiplicando ambos
         electronicGrid.calculateResidenceCost();
     }
 
