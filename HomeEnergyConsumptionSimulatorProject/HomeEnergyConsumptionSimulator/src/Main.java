@@ -19,7 +19,8 @@ public class Main {
                     "5- Remover Eletrodomésticos\n"+
                     "6- Listar Eletrodomésticos\n" +
                     "7- Calcular Custo de Luz Mensal\n" +
-                    "8- INFO: Como funciona o sistema\n");
+                    "8- INFO: Como funciona o sistema\n" +
+                    "9- SAIR DO SISTEMA\n");
             option = scan.nextInt();
 
             switch(option){

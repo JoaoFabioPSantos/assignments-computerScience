@@ -36,8 +36,8 @@ public class MainController {
 
     public void Info(){
         System.out.println("INFO:\nO sistema funciona cadastrando os eletrodomésticos que serão utilizados pelas residências." +
-                " \nApós o registro das residências e a indicação dos aparelhos que cada uma possui, " +
-                " o sistema permite informar o mês e o tempo de uso de cada eletrodoméstico," +
+                " \nApós o registro das residências e a indicação dos aparelhos que cada uma possui," +
+                " o sistema permite informar o mês e\n o tempo de uso de cada eletrodoméstico," +
                 " calculando automaticamente o consumo mensal de energia e o valor da conta do mês.");
     }
 }
