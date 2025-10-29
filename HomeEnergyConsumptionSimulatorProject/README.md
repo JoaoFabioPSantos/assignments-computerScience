@@ -42,7 +42,6 @@ Brief description of the system’s functionality.
 
 ### Electric Grid Class
 1. Attributes:
-- Array of residences (Residence[ ])
 - Billing month (may vary depending on the number of days)
 
 2. Functions:
