@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         MainController controller = new MainController();
         int option = 0;
 
@@ -20,7 +20,7 @@ public class Main {
                     "6- Listar Eletrodomésticos\n" +
                     "7- Calcular Custo de Luz Mensal\n" +
                     "8- INFO: Como funciona o sistema\n");
-            option = scn.nextInt();
+            option = scan.nextInt();
 
             switch(option){
                 case 1:
@@ -35,11 +35,11 @@ public class Main {
                     break;
 
                 case 4:
-                    controller.electronicApp.Register(scn);
+                    controller.electronicApp.Register(scan);
                     break;
 
                 case 5:
-                    controller.electronicApp.Remove(scn);
+                    controller.electronicApp.Remove(scan);
                     break;
 
                 case 6:
@@ -47,9 +47,13 @@ public class Main {
                     break;
 
                 case 7:
+                    controller.StartCalculationEnergyCost(scan);
                     break;
 
                 case 8:
+                    controller.Info();
+                    System.out.print("Digite ok para continuar");
+                    scan.next();
                     break;
 
                 case 9:
@@ -61,6 +65,6 @@ public class Main {
                     break;
             }
         }
-        scn.close();
+        scan.close();
     }
 }
