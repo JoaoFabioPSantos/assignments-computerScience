@@ -10,54 +10,60 @@ public class Main {
 
         System.out.println("==Bem vindo ao sistema de Energia SAEC - Sistema Academico de Energia e Cálculo==");
 
-        while(option != 9){
+        while(option != 10){
             System.out.println("Digite um número correspondente para acessar a função: \n" +
                     "1- Adicionar Residência\n" +
                     "2- Remover Residência\n" +
-                    "3- Listar Residência\n" +
-                    "4- Registrar Eletrodomésticos\n"+
-                    "5- Remover Eletrodomésticos\n"+
-                    "6- Listar Eletrodomésticos\n" +
-                    "7- Calcular Custo de Luz Mensal\n" +
-                    "8- INFO: Como funciona o sistema\n" +
-                    "9- SAIR DO SISTEMA\n");
+                    "3- Mostrar informação de Residência"+
+                    "4- Listar Residências\n" +
+                    "5- Registrar Eletrodomésticos\n"+
+                    "6- Remover Eletrodomésticos\n"+
+                    "7- Listar Eletrodomésticos\n" +
+                    "8- Calcular Custo de Luz Mensal\n" +
+                    "9- INFO: Como funciona o sistema\n" +
+                    "10- SAIR DO SISTEMA\n");
             option = scan.nextInt();
 
             switch(option){
                 case 1:
-                    //Implement
+                    controller.residences.registerResidence(scan);
                     break;
 
                 case 2:
-                    //Implement
+                    controller.residences.removeResidence(scan);
                     break;
 
                 case 3:
+                    controller.residences.showResidenceInformation(scan);
                     break;
 
                 case 4:
-                    controller.electronicApp.Register(scan);
+                    controller.residences.listResidences();
                     break;
 
                 case 5:
-                    controller.electronicApp.Remove(scan);
+                    controller.electronicApp.register(scan);
                     break;
 
                 case 6:
-                    controller.electronicApp.ListElectronicAppliances();
+                    controller.electronicApp.remove(scan);
                     break;
 
                 case 7:
-                    controller.StartCalculationEnergyCost(scan);
+                    controller.electronicApp.listElectronicAppliances();
                     break;
 
                 case 8:
-                    controller.Info();
+                    controller.startCalculationEnergyCost(scan);
+                    break;
+
+                case 9:
+                    controller.info();
                     System.out.print("Digite ok para continuar");
                     scan.next();
                     break;
 
-                case 9:
+                case 10:
                     System.out.println("OBRIGADO POR UTILIZAR O SISTEMA");
                     break;
 
