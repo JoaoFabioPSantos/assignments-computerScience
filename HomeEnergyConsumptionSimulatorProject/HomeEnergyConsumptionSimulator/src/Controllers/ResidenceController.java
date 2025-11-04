@@ -15,10 +15,11 @@ public class ResidenceController {
 
         System.out.println("-A residência possui eletrodomésticos? 1-sim / 2-não");
         int haveEletronics = scan.nextInt();
-        if(haveEletronics == 1){
+        boolean startEletronics = false;
+        if(haveEletronics == 1)startEletronics = true;
 
-        }
-        boolean verifyer = residences.add(new Residence(nameTemp));
+        boolean verifyer = residences.add(new Residence(nameTemp, startEletronics, scan));
+
         if(verifyer){
             System.out.println("-Residência cadastrada com sucesso\n-Digite ok para prosseguir");
             scan.next();
@@ -74,7 +75,8 @@ public class ResidenceController {
         }
 
         if (toFound != null) {
-            System.out.println("SELECIONADO: \n -Nome: "+toFound.getName());
+            System.out.println("SELECIONADO: \n -Nome: "+toFound.getName()+"\n LISTA DE ELETRODOMÉSTICOS: ");
+            toFound.getElectronicApplianceController().listElectronicAppliances();
 
             System.out.println("-Digite ok para prosseguir");
             scan.next();

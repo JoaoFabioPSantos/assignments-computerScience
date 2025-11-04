@@ -2,15 +2,21 @@ package Models;
 
 import Controllers.ElectronicApplianceController;
 
+import java.util.Scanner;
+
 public class Residence {
     private static int nextId = 1;
     private int id;
     private String name;
-    ElectronicApplianceController eletronicAppResidence = new ElectronicApplianceController();
+    private ElectronicApplianceController eletronicAppResidence = new ElectronicApplianceController();
 
-    public Residence(String name) {
+    public Residence(String name, boolean haveEletronics, Scanner scan) {
         this.id = nextId ++;
         this.name = name;
+
+        if(haveEletronics){
+            eletronicAppResidence.register(scan);
+        }
     }
 
     public int getId(){
@@ -19,6 +25,10 @@ public class Residence {
 
     public String getName(){
         return name;
+    }
+
+    public ElectronicApplianceController getElectronicApplianceController(){
+        return eletronicAppResidence;
     }
 
 }

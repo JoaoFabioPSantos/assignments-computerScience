@@ -11,7 +11,8 @@ public class MainController {
         System.out.println("DEFINA A RESIDÊNCIA QUE VOCÊ GOSTARIA DE CALCULAR: ");
         int residenceID = scan.nextInt();
 
-        System.out.println("RESIDENCIA ESCOLHIDA: \n NOME: \n N° de Eletrodomésticos: \n" );
+        residences.getInformationResidence(residenceID);
+        System.out.println("RESIDENCIA ESCOLHIDA: "+"\n -NOME: "+"\n -N° de Eletrodomésticos: \n"+ );
 
         System.out.println("--Digite o número do mês que você gostaria de calcular: ");
         int monthToCalc = scan.nextInt();
