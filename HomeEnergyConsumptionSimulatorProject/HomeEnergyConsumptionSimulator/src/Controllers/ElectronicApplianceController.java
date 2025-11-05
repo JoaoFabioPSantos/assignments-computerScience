@@ -73,7 +73,7 @@ public class ElectronicApplianceController {
     }
 
     public boolean register(Scanner scan){
-        if(electronics.isEmpty()){
+        if(electronicsMain.isEmpty()){
             System.out.println("!!Cadastre algum eletrodoméstico para adicionar a alguma Residência!!");
             return true;
         }
@@ -85,8 +85,8 @@ public class ElectronicApplianceController {
             return true;
         }
 
-        System.out.println("\n--Esta é a lista atual de eletrodomésticos:");
-        listElectronicAppliances();
+        System.out.println("\n--Esta é a lista atual de eletrodomésticos cadastrada no sistema:");
+        listElectronicAppliancesMain();
 
         for(int i=0; i<quantityAdd; i++){
             System.out.println("\n--Digite o ID do eletrodoméstico que gostaria de adicionar na residência: ");
@@ -95,6 +95,7 @@ public class ElectronicApplianceController {
             for(ElectronicAppliance e : electronicsMain){
                 if(idToAdd == e.getId()){
                     electronics.add(e);
+                    System.out.println("--Eletrodoméstico adicionado: "+e.getName());
                 }
             }
         }
@@ -138,5 +139,19 @@ public class ElectronicApplianceController {
                 System.out.println("-ID: "+e.getId()+" || NOME: "+e.getName()+" || CUSTO KW/H "+e.getCostByHour());
             }
         }
+    }
+
+    public int countElectronics(){
+        return electronics.size();
+    }
+
+    public float returnCostById(int id) {
+        for (ElectronicAppliance e : electronics) {
+            if (e.getId() == id) {
+                return e.getCostByHour();
+            }
+        }
+
+        return 0.0f;
     }
 }

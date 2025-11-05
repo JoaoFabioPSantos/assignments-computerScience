@@ -1,19 +1,24 @@
 package Controllers;
 
 import Models.ElectricGrid;
+import Models.Residence;
 
 public class ElectricGridController {
     ElectricGrid electricGrid = new ElectricGrid();
-    
 
-    public void calculateResidenceCost(){
-        System.out.println("Vamos calcular o custo da Residência: ");
+    public void calculateResidenceCost(Residence residenceChoose, int monthChoose, boolean leapYear) {
+        System.out.println("--Vamos calcular o custo da Residência: \n--A seguir a lista de eletrônicos que vai ser levada em consideração:");
 
-        float sumEletronics = 1;
-        //fazer um for passando o array passando por cada eletronico e colocando o tempo/horas que foi utilizado em média por dia
+
+        residenceChoose.getElectronicApplianceController().listElectronicAppliances();
+        float sumEletronics = 0.0f;
+        var array = residenceChoose.getElectronicApplianceController();
+        for(int i = 0; i<array.countElectronics();i++){
+            sumEletronics += array.returnCostById(i);
+        }
 
         float tax = electricGrid.getEletronicTax();
-        int days = electricGrid.daysByMonth(2, true);
+        int days = electricGrid.daysByMonth(monthChoose, leapYear);
 
         float result = sumEletronics * days;
         float resultMonetary = result * tax;

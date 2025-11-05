@@ -11,14 +11,15 @@ public class MainController {
         System.out.println("DEFINA A RESIDÊNCIA QUE VOCÊ GOSTARIA DE CALCULAR: ");
         int residenceID = scan.nextInt();
 
-        residences.getInformationResidence(residenceID);
-        System.out.println("RESIDENCIA ESCOLHIDA: "+"\n -NOME: "+"\n -N° de Eletrodomésticos: \n"+ );
+        var residenceChoose = residences.getInformationResidence(residenceID);
+        System.out.println("RESIDENCIA ESCOLHIDA: "+"\n -NOME: "+residenceChoose.getName()+"\n -N° de Eletrodomésticos: \n"+residenceChoose.getElectronicApplianceController().countElectronics());
 
         System.out.println("--Digite o número do mês que você gostaria de calcular: ");
         int monthToCalc = scan.nextInt();
+        boolean leapYear = false;
         if (monthToCalc == 2) {
             System.out.println("--É um ano bissexto? 1 para sim, 2 para não: ");
-            boolean leapYear = (scan.nextInt() == 1);
+            leapYear = (scan.nextInt() == 1);
         }
 
         System.out.println("--A taxa atual é de: "+electronicGrid.electricGrid.getEletronicTax()+"\n-Gostara de alterar esta taxa? 1 para sim, 2 para não: ");
@@ -29,10 +30,9 @@ public class MainController {
             electronicGrid.electricGrid.setEletronicTax(newTax);
         }
 
-        //Ai vamos passar aqui embaixo, apenas a residence específica do array para ser alterada
-        //é necessário pegar a array e informar o tempo que foi utilizado cada eletrodoméstico, pegar o custo dele de energia
-        //adicionar a uma variável multiplicando ambos
-        electronicGrid.calculateResidenceCost();
+        electronicGrid.calculateResidenceCost(residenceChoose, monthToCalc, leapYear);
+        System.out.println("--Digite ok para continuar");
+        scan.next();
     }
 
     public void info(){

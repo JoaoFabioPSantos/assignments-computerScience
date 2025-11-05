@@ -14,7 +14,7 @@ public class Main {
             System.out.println("Digite um número correspondente para acessar a função: \n" +
                     "1- Adicionar Residência\n" +
                     "2- Remover Residência\n" +
-                    "3- Mostrar informação de Residência"+
+                    "3- Mostrar informação de Residência | Alterar Residência\n"+
                     "4- Listar Residências\n" +
                     "5- Registrar Eletrodomésticos\n"+
                     "6- Remover Eletrodomésticos\n"+
@@ -42,15 +42,15 @@ public class Main {
                     break;
 
                 case 5:
-                    controller.electronicApp.register(scan);
+                    controller.electronicApp.registerMain(scan);
                     break;
 
                 case 6:
-                    controller.electronicApp.remove(scan);
+                    controller.electronicApp.removeMain(scan);
                     break;
 
                 case 7:
-                    controller.electronicApp.listElectronicAppliances();
+                    controller.electronicApp.listElectronicAppliancesMain();
                     break;
 
                 case 8:

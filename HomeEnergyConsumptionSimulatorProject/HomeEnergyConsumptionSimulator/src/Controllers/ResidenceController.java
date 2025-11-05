@@ -11,7 +11,7 @@ public class ResidenceController {
     public void registerResidence(Scanner scan){
         System.out.println("==REGISTRANDO RESIDÊNCIA==");
         System.out.print("-Digite o nome do registro: ");
-        String nameTemp = scan.nextLine();
+        String nameTemp = scan.next();
 
         System.out.println("-A residência possui eletrodomésticos? 1-sim / 2-não");
         int haveEletronics = scan.nextInt();
@@ -78,10 +78,42 @@ public class ResidenceController {
             System.out.println("SELECIONADO: \n -Nome: "+toFound.getName()+"\n LISTA DE ELETRODOMÉSTICOS: ");
             toFound.getElectronicApplianceController().listElectronicAppliances();
 
+            System.out.println("--Gostaria de alterar a residência ? 1-Sim | 2-Não");
+            boolean alter = (scan.nextInt() == 1);
+            if(alter){
+                alterResidence(toFound, scan);
+            }
             System.out.println("-Digite ok para prosseguir");
             scan.next();
         } else {
             System.out.println("!!ID não encontrado!!");
+        }
+    }
+
+    private void alterResidence(Residence founded, Scanner scan){
+        int alterSwitch = 0;
+        while(alterSwitch !=3){
+            System.out.println("--Gostaria de adicionar ou remover eletrodomésticos? \n1- Adicionar | \n2- Remover | \n3- Sair");
+            alterSwitch = scan.nextInt();
+            switch (alterSwitch){
+                case 1:
+                    founded.getElectronicApplianceController().register(scan);
+                    break;
+
+                case 2:
+                    founded.getElectronicApplianceController().remove(scan);
+                    break;
+
+                case 3:
+                    System.out.println("--A residência ficou desta forma:");
+                    System.out.println("SELECIONADO: \n -Nome: "+founded.getName()+"\n LISTA DE ELETRODOMÉSTICOS: ");
+                    founded.getElectronicApplianceController().listElectronicAppliances();
+                    break;
+
+                default:
+                    System.out.println("!!ERRO!!");
+                    break;
+            }
         }
     }
 
