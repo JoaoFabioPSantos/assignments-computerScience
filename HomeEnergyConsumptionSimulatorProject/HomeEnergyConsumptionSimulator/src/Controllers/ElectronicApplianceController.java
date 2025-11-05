@@ -151,7 +151,15 @@ public class ElectronicApplianceController {
                 return e.getCostByHour();
             }
         }
-
         return 0.0f;
+    }
+
+    public String returnNameById(int id){
+        for (ElectronicAppliance e : electronics) {
+            if (e.getId() == id) {
+                return e.getName();
+            }
+        }
+        return "Erro";
     }
 }

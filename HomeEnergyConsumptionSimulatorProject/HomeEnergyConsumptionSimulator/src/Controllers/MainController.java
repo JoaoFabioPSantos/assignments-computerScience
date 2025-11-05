@@ -30,7 +30,7 @@ public class MainController {
             electronicGrid.electricGrid.setEletronicTax(newTax);
         }
 
-        electronicGrid.calculateResidenceCost(residenceChoose, monthToCalc, leapYear);
+        electronicGrid.calculateResidenceCost(scan, residenceChoose, monthToCalc, leapYear);
         System.out.println("--Digite ok para continuar");
         scan.next();
     }
