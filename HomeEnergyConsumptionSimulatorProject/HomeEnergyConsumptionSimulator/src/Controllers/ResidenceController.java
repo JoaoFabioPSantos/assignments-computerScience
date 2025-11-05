@@ -11,7 +11,8 @@ public class ResidenceController {
     public void registerResidence(Scanner scan){
         System.out.println("==REGISTRANDO RESIDÊNCIA==");
         System.out.print("-Digite o nome do registro: ");
-        String nameTemp = scan.next();
+        scan.nextLine();
+        String nameTemp = scan.nextLine();
 
         System.out.println("-A residência possui eletrodomésticos? 1-sim / 2-não");
         int haveEletronics = scan.nextInt();

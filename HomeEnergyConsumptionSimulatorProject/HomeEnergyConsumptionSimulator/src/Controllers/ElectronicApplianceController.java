@@ -21,7 +21,8 @@ public class ElectronicApplianceController {
     public void registerMain(Scanner scan){
         System.out.println("==REGISTRANDO ELETRODOMÉSTICO==");
         System.out.println("-Digite o nome dele: ");
-        String nameTemp = scan.next();
+        scan.nextLine();
+        String nameTemp = scan.nextLine();
         System.out.println("-Digite o custo por hora em kW/h: ");
         float costByHourTemp = scan.nextFloat();
 
@@ -91,12 +92,15 @@ public class ElectronicApplianceController {
         for(int i=0; i<quantityAdd; i++){
             System.out.println("\n--Digite o ID do eletrodoméstico que gostaria de adicionar na residência: ");
             int idToAdd = scan.nextInt();
-
+            boolean foundEletronic = false;
             for(ElectronicAppliance e : electronicsMain){
                 if(idToAdd == e.getId()){
-                    electronics.add(e);
+                    foundEletronic = electronics.add(e);
                     System.out.println("--Eletrodoméstico adicionado: "+e.getName());
                 }
+            }
+            if(!foundEletronic){
+                System.out.println("!!ID DE ELETRODOMÉSTICO NÃO ENCONTRADO!!");
             }
         }
         return true;

@@ -17,10 +17,10 @@ public class ElectricGridController {
         float tax = electricGrid.getEletronicTax();
         int days = electricGrid.daysByMonth(monthChoose, leapYear);
 
-        var array = residenceChoose.getElectronicApplianceController();
+        ElectronicApplianceController array = residenceChoose.getElectronicApplianceController();
         for(int i = 0; i<array.countElectronics();i++){
-            System.out.println("-Eletrodoméstico: "+array.returnNameById(i));
-            sumEletronics += returnTotalCostByDay(scan, array.returnCostById(i));
+            System.out.println("-Eletrodoméstico: "+array.returnNameById(i+1));
+            sumEletronics += returnTotalCostByDay(scan, array.returnCostById(i+1));
         }
 
         float result = sumEletronics * days;

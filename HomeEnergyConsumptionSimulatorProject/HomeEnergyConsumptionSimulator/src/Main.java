@@ -11,7 +11,7 @@ public class Main {
         System.out.println("==Bem vindo ao sistema de Energia SAEC - Sistema Academico de Energia e Cálculo==");
 
         while(option != 10){
-            System.out.println("Digite um número correspondente para acessar a função: \n" +
+            System.out.println("\nDigite um número correspondente para acessar a função: \n" +
                     "1- Adicionar Residência\n" +
                     "2- Remover Residência\n" +
                     "3- Mostrar informação de Residência | Alterar Residência\n"+

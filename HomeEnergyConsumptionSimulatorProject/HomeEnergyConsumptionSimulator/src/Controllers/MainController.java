@@ -8,31 +8,34 @@ public class MainController {
     public ResidenceController residences = new ResidenceController();
 
     public void startCalculationEnergyCost(Scanner scan){
-        System.out.println("DEFINA A RESIDÊNCIA QUE VOCÊ GOSTARIA DE CALCULAR: ");
+        System.out.println("DIGITE O ID DA RESIDÊNCIA QUE VOCÊ GOSTARIA DE CALCULAR: ");
         int residenceID = scan.nextInt();
 
         var residenceChoose = residences.getInformationResidence(residenceID);
-        System.out.println("RESIDENCIA ESCOLHIDA: "+"\n -NOME: "+residenceChoose.getName()+"\n -N° de Eletrodomésticos: \n"+residenceChoose.getElectronicApplianceController().countElectronics());
+        System.out.println("RESIDENCIA ESCOLHIDA: "+"\n -NOME: "+residenceChoose.getName()+"\n -N° de Eletrodomésticos: "+residenceChoose.getElectronicApplianceController().countElectronics());
+        if(residenceChoose.getElectronicApplianceController().countElectronics() != 0) {
+            System.out.println("--Digite o número do mês que você gostaria de calcular: ");
+            int monthToCalc = scan.nextInt();
+            boolean leapYear = false;
+            if (monthToCalc == 2) {
+                System.out.println("--É um ano bissexto? 1 para sim, 2 para não: ");
+                leapYear = (scan.nextInt() == 1);
+            }
 
-        System.out.println("--Digite o número do mês que você gostaria de calcular: ");
-        int monthToCalc = scan.nextInt();
-        boolean leapYear = false;
-        if (monthToCalc == 2) {
-            System.out.println("--É um ano bissexto? 1 para sim, 2 para não: ");
-            leapYear = (scan.nextInt() == 1);
+            System.out.println("--A taxa atual é de: " + electronicGrid.electricGrid.getEletronicTax() + "\n-Gostara de alterar esta taxa? 1 para sim, 2 para não: ");
+            boolean changeTax = (scan.nextInt() == 1);
+            if (changeTax) {
+                System.out.println("--Digite a nova taxa: ");
+                float newTax = scan.nextFloat();
+                electronicGrid.electricGrid.setEletronicTax(newTax);
+            }
+
+            electronicGrid.calculateResidenceCost(scan, residenceChoose, monthToCalc, leapYear);
+            System.out.println("--Digite ok para continuar");
+            scan.next();
+        }else{
+            System.out.print("!!Esta residência não possui eletrodomésticos para serem calculados!!");
         }
-
-        System.out.println("--A taxa atual é de: "+electronicGrid.electricGrid.getEletronicTax()+"\n-Gostara de alterar esta taxa? 1 para sim, 2 para não: ");
-        boolean changeTax = (scan.nextInt() == 1);
-        if (changeTax) {
-            System.out.println("--Digite a nova taxa: ");
-            float newTax = scan.nextFloat();
-            electronicGrid.electricGrid.setEletronicTax(newTax);
-        }
-
-        electronicGrid.calculateResidenceCost(scan, residenceChoose, monthToCalc, leapYear);
-        System.out.println("--Digite ok para continuar");
-        scan.next();
     }
 
     public void info(){
