@@ -7,9 +7,8 @@ public class ElectronicAppliance {
     private float costByHour;
 
     public ElectronicAppliance(String name, float costByHour){
-        this.id = nextId;
+        this.id = nextId++;
         //sum in the next electronic
-        nextId += 1;
         this.name = name;
         this.costByHour = costByHour;
     }
