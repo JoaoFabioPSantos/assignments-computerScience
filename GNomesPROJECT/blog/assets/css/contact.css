@@ -1,39 +1,34 @@
 :root {
-    --cor-header: #0ea5e9;   /* COR DO HEADER */
-    --cor-hero: #e0f2fe;     /* COR DO HERO */
-    --cor-post: #fff7ed;     /* COR DO POST */
-    --cor-sidebar: #f0fdf4;  /* COR DA SIDEBAR */
-    --cor-footer: #111827;   /* COR DO FOOTER */
+    --cor-header: #0ea5e9;
+    --cor-hero: #e0f2fe;
+    --cor-post: #fff7ed;
+    --cor-sidebar: #f0fdf4;
+    --cor-footer: #111827;
     --txt: #111827;
     --muted: #6b7280;
     --borda: #e5e7eb;
 
     --primary-color: #4B6B43;
-    --secondary-color: #C0392B;
     --neutral-color: #e9c762;
-    --neutral-bold: #5D473A;
-    --highlight-color: #355C7D;
-    --suport-color: #D5E8D4;
 }
+
+/* ===== RESET ===== */
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    color: var(--txt);
-    background: #f8fafc;
-    display: flex;
-    background: var(--primary-color);
-    flex-direction: column;
+html, body {
     height: 100%;
+    margin: 0;
 }
 
-html {
-    height: 100%;
-    margin: 0;
+body {
+    font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--txt);
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -47,6 +42,7 @@ a {
     padding: 16px;
 }
 
+/* ===== HEADER ===== */
 
 header {
     color: #fff;
@@ -60,8 +56,8 @@ header .top {
 }
 
 nav ul {
-    list-style: none;
     display: flex;
+    list-style: none;
     gap: 10px;
     margin: 0;
     padding: 0;
@@ -71,6 +67,7 @@ nav a {
     background: rgba(255, 255, 255, 0.2);
     padding: 8px 12px;
     border-radius: 8px;
+    transition: 0.2s ease;
 }
 
 nav a:hover {
@@ -81,24 +78,24 @@ nav a:hover {
     color: var(--muted);
 }
 
-/* ====== GRID PRINCIPAL ====== */
+/* ===== GRID PRINCIPAL ===== */
 
 .grid {
-    display: flex;
-    justify-content: center;
+    display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
     margin-top: 16px;
+    justify-content: center;
 }
 
-/* ====== FOOTER ====== */
+/* ===== FOOTER ===== */
 
 footer {
     background: var(--cor-footer);
     color: #e5e7eb;
+    margin-top: auto;
     width: 100%;
-    margin-top: auto;   /* empurra para o fundo */
-    position: relative; /* importante */
+    position: relative;
 }
 
 footer .container {
@@ -108,17 +105,6 @@ footer .container {
     padding: 12px 16px;
 }
 
-.contact .contato {
-    background: var(--cor-footer);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    color: var(--cor-hero);
-}
-/* Área principal ocupa o espaço para empurrar o footer para o fundo */
 .contact {
     flex: 1;
     display: flex;
@@ -127,22 +113,29 @@ footer .container {
     justify-content: center;
 }
 
-/* Wrapper para centralizar a imagem abaixo */
+.contact .contato {
+    background: var(--cor-footer);
+    color: var(--cor-hero);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 .image-wrapper {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
-/* Estilo da imagem */
 .phone-img {
-    width: 250px; /* ajustável */
-    transition: transform 0.3s ease, filter 0.3s ease;
+    width: 250px;
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Efeito hover */
 .phone-img:hover {
     transform: scale(1.08) translateY(-6px);
     filter: brightness(1.15);
@@ -159,13 +152,11 @@ footer .container {
     z-index: 999;
 }
 
-/* --- Imagem pequena --- */
 .img-small {
     width: 45px;
     transition: opacity 0.3s ease;
 }
 
-/* --- Wrapper que fica em cima da imagem pequena --- */
 .big-wrapper {
     position: absolute;
     bottom: 10%;
@@ -176,13 +167,11 @@ footer .container {
     transition: opacity 0.4s ease;
 }
 
-/* Imagem grande */
 .img-large {
     width: 200px;
     margin-bottom: 15px;
 }
 
-/* Frase aparece somente na imagem grande */
 .msg {
     margin-top: 8px;
     background: var(--cor-footer);
@@ -194,11 +183,7 @@ footer .container {
     transition: opacity 0.3s ease;
 }
 
-/* --- Quando hover ativo --- */
-.mini-recommend.active .big-wrapper {
-    opacity: 1;
-}
-
+.mini-recommend.active .big-wrapper,
 .mini-recommend.active .msg {
     opacity: 1;
 }
