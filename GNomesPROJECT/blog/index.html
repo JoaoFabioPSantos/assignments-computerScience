@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GNomes</title>
-<link rel="stylesheet" href="assets/css/index.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GNomes</title>
+  <link rel="stylesheet" href="assets/css/index.css">
+  <script src="assets/js/follow.js" defer></script>
 </head>
+
 <body>
-  <!-- HEADER: altere a cor em --cor-header -->
   <header>
     <div class="container top">
       <strong>GNomes</strong>
       <nav>
         <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Categorias</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="views/gnomed.html">Gnomed</a></li>
+          <li><a href="views/contact.html">Contato</a></li>
         </ul>
       </nav>
     </div>
-    <!-- HERO: destaque de chamada, altere textos/cores -->
+
+    <!-- HERO -->
     <div class="container">
       <section class="hero">
-        <h1>Destaque da Semana</h1>
-        <p class="muted">Espaço para um resumo chamativo do seu post principal.</p>
+        <h1>Bem vindo a este site estranho</h1>
+        <p class="muted">Este é um projeto diferenciado feito para o trabalho de Laboratório II, por João Fabio Pereira dos Santos</p>
       </section>
     </div>
   </header>
 
-  <!-- GRID: posts + sidebar -->
   <div class="container">
     <main class="grid">
       <section>
-        <article class="post">
-          <h2>Título do Post</h2>
-          <div class="meta">Por Autor — 16/09/2025</div>
-          <p>Primeiro parágrafo do post. Edite livremente e troque a cor de fundo da seção <em>post</em>.</p>
-        </article>
-        <article class="post">
-          <h2>Outro Post Legal</h2>
-          <div class="meta">Por Autor — 14/09/2025</div>
-          <p>Resumo breve do segundo post. Experimente criar uma página de post completa.</p>
-        </article>
+        <a href="views/posts/house.html">
+           <article class="post">
+            <h2>Onde Gnomos Moram?</h2>
+            <div class="meta">Por Gnomo Violeta</div>
+            <p>Suas casas são definitivamente um dos tópicos mais interessantes a serem elaborados</p>
+          </article>
+        </a>
+
+        <a href="views/posts/mushrooms.html">
+          <article class="post">
+            <h2>O que eles comem?</h2>
+            <div class="meta">Por Gnomo Vermelho</div>
+            <p>Qual a dieta destas criaturas interessantes? Como eles sobrevivem?</p>
+          </article>
+        </a>
       </section>
 
       <aside>
-        <h3>Sobre o Autor</h3>
-        <p class="muted">Pequena bio. Pode colocar foto aqui.</p>
+        <h3>Objetivos da página</h3>
         <div class="card">
-          <strong>Categorias</strong>
+          <strong>Gnomos</strong>
           <ul>
-            <li>Web</li><li>CSS</li><li>Educação</li>
+            <li>Sua alimentação</li>
+            <li>Sua moradia</li>
+            <li>Suas interações</li>
           </ul>
         </div>
-        <div class="card">
-          <strong>Posts Recentes</strong>
-          <ul>
-            <li>Layout responsivo</li>
-            <li>Boas práticas de HTML</li>
-          </ul>
+
+        <div class="card image-card">
+          <img src="assets/images/gnomeForm.png" alt="gnomo format">
         </div>
       </aside>
     </main>
@@ -69,8 +71,22 @@
   <footer>
     <div class="container">
       <span>&copy; 2025 — GNome dev Fabow</span>
-      <span class="muted">Altere as cores no :root</span>
+      <span class="muted">Todos os direitos reservados a ninguém</span>
     </div>
   </footer>
+
+  <div class="trail">
+    <div class="follower">
+      <img class="sprite" src="assets/images/followersGnomes/GnomeBlue.png">
+    </div>
+
+    <div class="follower">
+      <img class="sprite" src="assets/images/followersGnomes/GnomeRed.png">
+    </div>
+
+    <div class="follower">
+      <img class="sprite" src="assets/images/followersGnomes/GnomePurple.png">
+    </div>
+  </div>
 </body>
 </html>
