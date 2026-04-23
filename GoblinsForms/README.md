@@ -62,80 +62,6 @@ npm start
 
 O frontend estará disponível em: **http://localhost:3001**
 
-## 🎯 Endpoints da API
-
-### Exercício 1 - Contar usuários
-```
-GET /usuarios/total
-```
-Retorna: `{ "total": 4 }`
-
-### Exercício 2 - Filtrar maiores de idade
-```
-GET /usuarios/maiores
-```
-Retorna lista de usuários com idade >= 18
-
-### Exercício 3 - Buscar por cidade
-```
-GET /usuarios/cidade/:cidade
-```
-Exemplo: `/usuarios/cidade/Lages`
-
-### Exercício 4 - Calcular média de idade
-```
-GET /usuarios/media-idade
-```
-Retorna: `{ "media": 24.5 }`
-
-### Exercício 5 - Encontrar o usuário mais velho
-```
-GET /usuarios/mais-velho
-```
-Retorna: `{ "nome": "Carlos", "idade": 30 }`
-
-### Exercício 6 - Agrupar por cidade
-```
-GET /usuarios/por-cidade
-```
-Retorna contagem de usuários por cidade
-
-### Exercício 7 - Ordenar por idade
-```
-GET /usuarios/ordenados
-```
-Retorna lista ordenada crescente por idade
-
-### Exercício 8 - Estatísticas completas
-```
-GET /usuarios/estatisticas
-```
-Retorna `{ total, mediaIdade, maisVelho, maisNovo }`
-
-## 📝 Endpoints Adicionais
-
-### Listar todos os usuários
-```
-GET /usuarios
-```
-
-### Buscar usuário por ID
-```
-GET /usuarios/:id
-```
-
-### Criar novo usuário
-```
-POST /usuarios
-Content-Type: application/json
-
-{
-  "nome": "João",
-  "idade": 25,
-  "cidade": "São Paulo"
-}
-```
-
 ## 💡 Como usar o Frontend
 
 1. Acesse http://localhost:3001
@@ -180,20 +106,6 @@ npm run dev  # Mesmo que start
 npm start    # Inicia o servidor na porta 3001
 npm run dev  # Mesmo que start
 ```
-
-## ✅ Checklist de Testes
-
-- [ X ] API iniciada na porta 3000
-- [ X ] Web iniciada na porta 3001
-- [ X ] Botão "Total de Usuários" retorna 4
-- [ X ] Botão "Maiores de 18" mostra 4 usuários
-- [ X ] Buscar "Lages" mostra Ana e Maria
-- [ X ] Média de idade é 24.5
-- [ X ] Usuário mais velho é Carlos (30 anos)
-- [ X ] Agrupamento por cidade correto
-- [ X ] Lista ordenada crescente
-- [ X ] Estatísticas completas aparecem corretamente
-- [ X ] Adicionar novo usuário funciona
 
 ## 📧 Suporte
 
